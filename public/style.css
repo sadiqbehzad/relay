@@ -1,0 +1,12 @@
+.thermostat {
+    display: flex;
+    flex-direction: row;
+}
+.currentTemp {
+    display: flex;
+    flex-direction: row;
+}
+
+.tempReading {
+    color: blue;
+}

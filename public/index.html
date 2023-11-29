@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Express Example</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="currentTemp">
+      <div>Current Room Temperature:&nbsp;</div>
+      <div class="tempReading" id="current">Loading...</div>
+    </div>
+
+    <div class="thermostat">
+      <button id="decrement" onclick="changeTemp(-1)">-</button>
+      <div class="tempDegree" id="tempDisplay">19</div>
+      <button id="increment" onclick="changeTemp(1)">+</button>
+    </div>
+
+    <script>
+      const tempDisplay = document.getElementById("current");
+      const ws = new WebSocket("ws://localhost:3000");
+
+      ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        const temperature = data.currentRoomtemperature;
+        tempDisplay.innerText = temperature;
+      };
+
+      ws.onclose = () => {
+        console.log("WebSocket Connection closed");
+      };
+
+      let count = parseInt(document.getElementById("tempDisplay").innerText);
+
+      function changeTemp(num) {
+        count += num;
+        if (count > 30) {
+          count = 30;
+        } else if (count < 17) {
+          count = 17;
+        }
+        document.getElementById("tempDisplay").innerText = count;
+
+        // Send the updated temperature to the server using HTTP
+        fetch("/setTemp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ number: count }),
+        });
+      }
+      window.onload = () => {
+        fetch("/setTemp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ number: count }),
+        });
+      };
+    </script>
+  </body>
+</html>
