@@ -3,19 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
     <title>Express Example</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="currentTemp">
-      <div>Current Room Temperature:&nbsp;</div>
-      <div class="tempReading" id="current">Loading...</div>
-    </div>
+    <div class="allcontents">
+      <div class="currentTemp">
+        <div class="title">Current Room Temperature&nbsp;</div>
+        <div class="tempReading" id="current">Loading...</div>
+      </div>
 
-    <div class="thermostat">
-      <button id="decrement" onclick="changeTemp(-1)">-</button>
-      <div class="tempDegree" id="tempDisplay">19</div>
-      <button id="increment" onclick="changeTemp(1)">+</button>
+      <div class="thermostat">
+        <button id="decrement" onclick="changeTemp(-1)">▼</button>
+        <div class="tempDegree" id="tempDisplay">22</div>
+        <button id="increment" onclick="changeTemp(1)">▲</button>
+      </div>
+    </div>
+    <div class="light-door">
+      <div class="title">Lights</div>
+      <div class="light-door-bttn">
+        <button class="lightDoor" id="lightsOn" onclick="lightsOn()">ON</button>
+        <button class="lightDoor" id="lightsOff" onclick="lightsOff()">
+          OFF
+        </button>
+      </div>
+    </div>
+    <div class="light-door">
+      <div class="title">Door</div>
+      <div class="light-door-bttn">
+        <button class="lightDoor" id="doorlock" onclick="doorOpen()">
+          Open
+        </button>
+        <button class="lightDoor" id="dooropen" onclick="doorLock()">
+          Close
+        </button>
+      </div>
     </div>
 
     <script>
@@ -25,7 +53,7 @@
       ws.onmessage = (event) => {
         const data = JSON.parse(event.data);
         const temperature = data.currentRoomtemperature;
-        tempDisplay.innerText = temperature;
+        tempDisplay.innerText = temperature + " ℃";
       };
 
       ws.onclose = () => {
@@ -61,6 +89,40 @@
           body: JSON.stringify({ number: count }),
         });
       };
+      //Lights:
+      function lightsOn() {
+        fetch("/turnOnR3", {
+          method: "POST",
+        })
+          .then((response) => response.text())
+          .then((data) => console.log(data))
+          .catch((err) => console.log("error: ", err));
+      }
+      function lightsOff() {
+        fetch("/turnOffR3", {
+          method: "POST",
+        })
+          .then((response) => response.text())
+          .then((data) => console.log(data))
+          .catch((err) => console.log("error: ", err));
+      }
+      //Door:
+      function doorOpen() {
+        fetch("/turnOnR4", {
+          method: "POST",
+        })
+          .then((response) => response.text())
+          .then((data) => console.log(data))
+          .catch((err) => console.log("error: ", err));
+      }
+      function doorLock() {
+        fetch("/turnOffR4", {
+          method: "POST",
+        })
+          .then((response) => response.text())
+          .then((data) => console.log(data))
+          .catch((err) => console.log("error: ", err));
+      }
     </script>
   </body>
 </html>

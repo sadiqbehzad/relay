@@ -113,6 +113,62 @@ async function coolerOff() {
   }
 }
 
+// Lights:
+async function lightsOn() {
+  try {
+    const response = await axios.get(`${raspberryPiIpAddress}/turnOnR3`);
+  } catch (error) {
+    console.error("Error fetching sensor data:", error.message);
+  }
+}
+
+async function lightsOff() {
+  try {
+    const response = await axios.get(`${raspberryPiIpAddress}/turnOffR3`);
+  } catch (error) {
+    console.error("Error fetching sensor data:", error.message);
+  }
+}
+
+app.post("/turnOnR3", (req, res) => {
+  console.log("Turn On button clicked!");
+  lightsOn();
+  res.end("turn on request recieved");
+});
+app.post("/turnOffR3", (req, res) => {
+  console.log("Turn Off button clicked!");
+  lightsOff();
+  res.end("turn off request recieved");
+});
+
+// Door:
+async function doorOn() {
+  try {
+    const response = await axios.get(`${raspberryPiIpAddress}/turnOnR4`);
+  } catch (error) {
+    console.error("Error fetching sensor data:", error.message);
+  }
+}
+
+async function doorOff() {
+  try {
+    const response = await axios.get(`${raspberryPiIpAddress}/turnOffR4`);
+  } catch (error) {
+    console.error("Error fetching sensor data:", error.message);
+  }
+}
+
+app.post("/turnOnR4", (req, res) => {
+  console.log("Turn On button clicked!");
+  doorOn();
+  res.end("turn on request recieved");
+});
+app.post("/turnOffR4", (req, res) => {
+  console.log("Turn Off button clicked!");
+  doorOff();
+  res.end("turn off request recieved");
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);

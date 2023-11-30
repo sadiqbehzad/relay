@@ -1,12 +1,92 @@
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.5vw;
+    background-color: whitesmoke;
+    font-weight: bold;
+    gap: 2vh;
+    
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.allcontents, .light-door{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(220, 219, 219);
+    box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.3);
+    width: 35vw;
+    height: 40vh;
+    border-radius: 2vw;
+    gap: 3vw;
+   
+}
 .thermostat {
     display: flex;
     flex-direction: row;
+    
 }
 .currentTemp {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px dotted black;
+    padding-bottom: 1vw;
 }
 
 .tempReading {
     color: blue;
+    font-family: 'Nunito', sans-serif;
+    
+}
+button {
+    width: 6vw;
+    height: 8vh;
+    font-size: 3vw;
+    border: 0px;
+    border-radius: 1vw;
+    z-index: 1;
+    color: rgb(65, 64, 64);
+    box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+button:hover {
+    background-color: beige;
+}
+button:active{
+    transform: translateY(2px) scale(0.95);
+}
+.tempDegree{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8vw;
+
+}
+.light-door {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    gap: 4vh;
+}
+.lightDoor{
+    width: 10vw;
+    font-size: 2vw;
+}
+.light-door-bttn {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
 }
