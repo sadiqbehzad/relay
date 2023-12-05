@@ -6,7 +6,7 @@ const axios = require("axios");
 
 const app = express();
 const port = 3000;
-const raspberryPiIpAddress = "http://192.168.1.93:3000";
+const raspberryPiIpAddress = "http://10.44.22.15:3000";
 // Enable WebSocket support in Express
 const { getWss, applyTo } = expressWs(app);
 
@@ -57,9 +57,21 @@ app.ws("/", (ws, req) => {
     console.log("WebSocket disconnected");
   });
 
+  let fallDetected = false;
   parser.on("data", processData);
+  let currentRoomtemperature;
   function processData(data) {
-    const currentRoomtemperature = parseFloat(data);
+    if (data.includes("Fall")) {
+      fallDetected = true;
+    } else {
+      currentRoomtemperature = parseFloat(data);
+      fallDetected = false;
+    }
+
+    if (fallDetected) {
+      console.log("Urgent call to supporter!");
+      //call urgentCall function
+    }
     ws.send(JSON.stringify({ currentRoomtemperature }));
     console.log("Current Room Temperature: ", currentRoomtemperature);
     console.log("The new set temperature", newTempSetting);

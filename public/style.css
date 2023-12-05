@@ -11,6 +11,18 @@ html, body {
     gap: 2vh;
     
 }
+img {
+    width: 3vw;
+    height: 3vh;
+    
+}
+.icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20vw;
+}
 .title{
     display: flex;
     justify-content: center;
