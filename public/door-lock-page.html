@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loft lights carousel</title>
+    <link rel="stylesheet" href="main-style.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  </head>
+  <script src="main-script.js"></script>
+  <body>
+    <div class="full-body">
+      <div class="resident-top-bar">
+        <a href="Carousel-page-resident.html">
+          <button class="R-garden-loft">
+            <img src="images/My loft.png" alt="" />
+          </button>
+        </a>
+        <a href="main-carousel.html">
+          <button class="R-Controls">
+            <img src="images/yellow-control-button.png" alt="" />
+          </button>
+        </a>
+
+        <a href="https://www.netflix.com/ca/">
+          <button class="R-watch-tv">
+            <img src="images/tv-button.png" alt="" />
+          </button>
+        </a>
+
+        <a href="Schedule1.html">
+          <button class="R-schedule">
+            <img src="images/Schedule-button.png" alt="" />
+          </button>
+        </a>
+          <a href="contact.html">
+        <button class="R-contacts">
+          <img src="images/contacts-button.png" alt="" />
+        </button>
+         </a>
+        <button class="R-support-button">
+          <img src="images/support-button.png" alt="" />
+        </button>
+        <a href="profile_res.html">
+          <button class="R-picture-button">
+            <img src="images/picture-button.png" alt="" />
+          </button>
+        </a>
+      </div>
+
+      
+      
+            
+
+              
+                <!-- <div class="m-container">
+
+                    <div class="div">
+                      <h3 >Front Door</h3>
+                    </div>
+                    <div class="img-cont">
+                      <img class="img1" id="door_unlocked_image" src="images/Group 125.png">
+                    <img class="img2" id="door_locked_image" src="images/lock.png">
+                    </div>
+                    <div class="div">
+                      <label class="toggle">
+                        <input type="checkbox" id="imageDoorLockToggle"/>
+                        <span class="slider"></span>
+                        <span class="labels" data-on="Unlocked" data-off="Locked"></span>
+                     </label>
+                    </div>
+                    
+                 
+
+
+                </div> -->
+                  
+                <div class="m-container">
+                  <h3 class="light-text">Door Lock</h3>
+                    <div class="img-cont">
+                      <img class="img1" id="door_unlocked_image" src="images/Group 125.png">
+                      <img class="img2"id="door_locked_image"src="images/lock_icon.png">
+                  
+                    </div>
+                
+                    <div id="toggle-div">
+                      <label class="toggle">
+                        <input type="checkbox" id="imageDoorLockToggle"/>
+                        <span class="slider"></span>
+                        <span class="labels" data-on="" data-off=""></span>
+                     </label>
+                    </div>
+                
+                </div>
+              
+              
+              
+              
+
+                
+          
+          
+             
+          <script>
+          function changeDoorLockImage() {
+  
+  const doorUnlockedImage = document.getElementById('door_unlocked_image');
+  const doorLockedImage = document.getElementById('door_locked_image');
+ 
+  const toggleInput = document.getElementById('imageDoorLockToggle');
+  console.log(toggleInput)
+
+
+
+
+toggleInput.addEventListener('change', function() {
+      // Check if the toggle is checked
+      if (toggleInput.checked) {
+        // console.log(toggleInput.checked)
+        // Change the image source when the toggle is checked
+        doorUnlockedImage.style.display = 'none';
+        doorLockedImage.style.display = "block";
+
+      } else {
+        // Change the image source back to the default when the toggle is unchecked
+        doorUnlockedImage.style.display ='block' ;
+        doorLockedImage.style.display= 'none' ;
+      
+      }
+    });
+  }
+
+const toggleInput = document.getElementById('imageDoorLockToggle');
+toggleInput.addEventListener('change', changeDoorLockImage);
+          
+          </script>
+     
+    </div>
+  </body>
+</html>

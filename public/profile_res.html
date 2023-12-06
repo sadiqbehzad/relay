@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Autour+One&family=Inter:wght@300;400;500&family=Lato:wght@300;400;700&family=Merriweather&family=Montserrat:wght@300;500&family=Mulish:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Profile</title>
+  </head>
+  <body id="google_translate_element">
+    <header></header>
+
+    <div class="resident-top-bar">
+      <a href="Carousel-page-resident.html">
+        <button class="R-garden-loft">
+          <img src="images/My loft.png" alt="" />
+        </button>
+      </a>
+      <a href="Dashboard-carousel-page-resident.html">
+        <button class="R-Controls">
+          <img src="images/control-button.png" alt="" />
+        </button>
+      </a>
+      <a href="https://www.netflix.com/ca/">
+        <button class="R-watch-tv">
+          <img src="images/tv-button.png" alt="" /></button
+      ></a>
+
+      <button class="R-schedule">
+        <img src="images/Schedule-button.png" alt="" />
+      </button>
+      <button class="R-contacts">
+        <img src="images/contacts-button.png" alt="" />
+      </button>
+      <button class="R-support-button">
+        <img src="images/support-button.png" alt="" />
+      </button>
+      <button class="R-picture-button">
+        <img src="images/yellow-profile.png" alt="" />
+      </button>
+    </div>
+
+    <div class="profile-container" id="resident-profile">
+      <div id="profile-image">
+        <img
+          id="res_profile_img"
+          src="images/Martha Portrait 4.png"
+          alt="resident"
+        />
+      </div>
+
+      <div id="main-info">
+        <h2 id="full-name">Martha Smith</h2>
+        <!-- <h1 id="age"></h1> -->
+        <h4>My Garden Loft Theme</h4>
+        <h4>My Favorite TV Show</h4>
+        <h4>My Favorite Pics</h4>
+      </div>
+      <div id="update-btn">
+        <button class="update-btn">CHANGE LANGUAGE</button>
+      </div>
+    </div>
+
+    <div id="check-info-container">
+      <h2>Check Your Information Here</h2>
+      <div class="check-info">
+        <div>
+          <label>Physical Address</label>
+          <h5>4856 Dalton Dr.NW, AB CA T3A 2A4</h5>
+
+          <label>Phone Number</label>
+          <h5>431 675 765</h5>
+
+          <label>Date of Birth</label>
+          <h5>August 25, 1957</h5>
+        </div>
+
+        <div>
+          <label>Power of Attorney Full Name(Optional)</label>
+          <h5>Emma Moore-daughter</h5>
+
+          <label>Emergency Contact</label>
+          <h5>Emma Moore-daughter 431 988 7667</h5>
+
+          <div id="hobbies">
+            <div>
+              <label>Favorite Colour</label>
+              <h5>Yellow</h5>
+            </div>
+
+            <div>
+              <label>Hobbies</label>
+              <h5>Cooking, drawing, reading</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //  fetch('http://localhost:3000/users')
+      //   .then(response => {
+      //     if (!response.ok) {
+      //     throw new Error(`HTTP error! Status: ${response.status}`);
+      //     }
+      //     return response.json();
+      //   })
+      //   .then(data => {
+      //     const userDetails=data
+      //     // document.getElementById('age').innerHTML= `Age: ${userDetails.age}`
+      //     document.getElementById('full-name').innerHTML=userDetails.fullName
+
+      //   })
+
+      //   .catch(error => console.error('Error:', error));
+    </script>
+
+    <!-- translate google script, add id="google_translate_element" to translated area-->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+  </body>
+</html>

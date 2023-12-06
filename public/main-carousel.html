@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loft lights carousel</title>
+    <link rel="stylesheet" href="main-style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  </head>
+  <script src="main-script.js"></script>
+  <body>
+    <div class="full-body">
+      <div class="resident-top-bar">
+        <a href="Carousel-page-resident.html">
+          <button class="R-garden-loft">
+            <img src="images/My loft.png" alt="" />
+          </button>
+        </a>
+        <a href="Dashboard-carousel-page-resident.html">
+          <button class="R-Controls">
+            <img src="images/yellow-control-button.png" alt="" />
+          </button>
+        </a>
+
+        <a href="https://www.netflix.com/ca/">
+          <button class="R-watch-tv">
+            <img src="images/tv-button.png" alt="" />
+          </button>
+        </a>
+
+        <a href="Schedule1.html">
+          <button class="R-schedule">
+            <img src="images/Schedule-button.png" alt="" />
+          </button>
+          </a>
+          <a href="contact.html"><button class="R-contacts">
+            <img src="images/contacts-button.png" alt="" />
+          </button>
+        </a>
+        
+
+        <button class="R-support-button">
+          <img src="images/support-button.png" alt="" />
+        </button>
+        <a href="profile_res.html">
+          <button class="R-picture-button">
+            <img src="images/picture-button.png" alt="" />
+          </button>
+        </a>
+      </div>
+
+      <!-- <div class="resident-container"> -->
+      <div class="slider-container" style="margin-top: 5vw">
+        <span class="arrow-left"></span>
+        <span class="arrow-right"></span>
+        <div class="slider" id="slider">
+          <div class="slide prev-1">
+
+          <a href="Temperature-page-resident.html">
+            <div>
+              <h4 class="main-carosel-text">Temperature Control</h4>
+              <img class="temperature_img" src="images/Temp.png" alt="">
+            </div>
+          </a> 
+           
+
+          </div>
+
+          <!-- <div class="slide active">
+            <div class="light-control">
+              <div class="kitchen-light">
+                <a href="Temperature-page-resident.html">
+                <h4 class="main-carosel-text">Light Control</h4>
+                <div id="circle">
+                  
+                  <img class="temperature_img" src="images/light_off.png">
+              
+                </div>
+            </a>
+                
+            </div> -->
+
+
+            <div class="slide active">
+              <!-- <div class="light-control">
+                <div class="kitchen-light"> -->
+                  <a href="lights-carousel.html">
+                    <div style="height:25vw" >
+                    <h4 class="main-carosel-text">Light Control</h4>
+                    <div id="circle">
+                    <img class="temperature_img" src="images/light_off.png">
+                
+                  </div>
+                </div> 
+              </a>
+                  
+              <!-- </div>
+            
+            
+            
+              </div> -->
+            
+
+          </div>
+          
+
+          <div class="slide next-2">
+            <a href="door-lock-page.html">
+            <div class="door-lock" style="height:25vw">
+              <h4 class="main-carosel-text">Door Lock</h4>
+              <div class="lock">
+                
+                <img class="temperature_img" src="images/locked_icon.png">
+              </div>
+          
+            </div>
+           </a>  
+          </div>
+        </div>
+      </div>
+
+      <!-- </div> -->
+    </div>
+
+    <script>
+      function changeImage() {
+        const lightOnImage = document.getElementById("light_on_image");
+        const lightOffImage = document.getElementById("light_off_image");
+
+        const toggleInput = document.getElementById("imageToggle");
+        console.log(toggleInput);
+
+        toggleInput.addEventListener("change", function () {
+          // Check if the toggle is checked
+          if (toggleInput.checked) {
+            // console.log(toggleInput.checked)
+            // Change the image source when the toggle is checked
+            lightOnImage.style.display = "block";
+            lightOffImage.style.display = "none";
+          } else {
+            // Change the image source back to the default when the toggle is unchecked
+            lightOnImage.style.display = "none";
+            lightOffImage.style.display = "block";
+          }
+        });
+      }
+
+      const toggleInput = document.getElementById("imageToggle");
+      toggleInput.addEventListener("change", changeImage);
+
+// door lock toggle 
+
+  function changeDoorLockImage() {
+  
+  const doorUnlockedImage = document.getElementById('door_unlocked_image');
+  const doorLockedImage = document.getElementById('door_locked_image');
+ 
+  const toggleInput1 = document.getElementById('imageDoorLockToggle');
+  console.log(toggleInput1)
+
+
+
+
+toggleInput1.addEventListener('change', function() {
+      // Check if the toggle is checked
+      if (toggleInput1.checked) {
+        // console.log(toggleInput.checked)
+        // Change the image source when the toggle is checked
+        doorUnlockedImage.style.display = 'block';
+        doorLockedImage.style.display = 'none';
+
+      } else {
+        // Change the image source back to the default when the toggle is unchecked
+        doorUnlockedImage.style.display = 'none';
+        doorLockedImage.style.display= 'block';
+      
+      }
+    });
+  }
+
+const toggleInput1 = document.getElementById('imageDoorLockToggle');
+toggleInput1.addEventListener('change', changeDoorLockImage);
+
+
+
+
+    </script>
+  </body>
+</html>

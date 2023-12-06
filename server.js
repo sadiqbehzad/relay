@@ -13,9 +13,16 @@ const { getWss, applyTo } = expressWs(app);
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
 
+if (process.env.NODE_ENV === "development") {
+  app.use((req, res, next) => {
+    res.set("Cache-Control", "no-store");
+    next();
+  });
+}
+
 // Define a route to serve the HTML file
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "test.html"));
 });
 
 let newTempSetting;

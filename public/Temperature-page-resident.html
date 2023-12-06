@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loft lights carousel</title>
+    <link rel="stylesheet" href="main-style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  </head>
+  <script src="main-script.js"></script>
+  <body>
+    <div class="full-body">
+      <div class="resident-top-bar">
+        <a href="Carousel-page-resident.html">
+          <button class="R-garden-loft">
+            <img src="images/My loft.png" alt="" />
+          </button>
+        </a>
+        <a href="main-carousel.html">
+          <button class="R-Controls">
+            <img src="images/yellow-control-button.png" alt="" />
+          </button>
+        </a>
+
+        <a href="https://www.netflix.com/ca/">
+          <button class="R-watch-tv">
+            <img src="images/tv-button.png" alt="" />
+          </button>
+        </a>
+
+        <a href="Schedule1.html">
+          <button class="R-schedule">
+            <img src="images/Schedule-button.png" alt="" />
+          </button>
+        </a>
+        <a href="contact.html">
+          <button class="R-contacts">
+            <img src="images/contacts-button.png" alt="" />
+          </button>
+        </a>
+
+        <button class="R-support-button">
+          <img src="images/support-button.png" alt="" />
+        </button>
+        <a href="profile_res.html">
+          <button class="R-picture-button">
+            <img src="images/picture-button.png" alt="" />
+          </button>
+        </a>
+      </div>
+
+      <!-- <div class="go-back">
+          <button id="go-back">
+                  <img class="back-arrow" src="images/ri_arrow-go-back-fill.png" alt=" go back"/>
+          </button>
+        </div>  -->
+      <div class="main-container1">
+        <div id="temp-div">
+          <div class="circle-temp">
+            <img src="images/Group 118.png" />
+          </div>
+
+          <div id="Current-temperature">Loading...</div>
+        </div>
+
+        <div class="container">
+          <div class="thermostat"></div>
+          <button class="decrease-btn">
+            <img id="plus" src="images/Vector.png" alt=" go back" />
+          </button>
+
+          <div class="temperature">22°C</div>
+
+          <button class="increase-btn">
+            <img id="minus" src="images/Vector (1).png" alt=" go back" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let currecurrentTemperature;
+      document.addEventListener("DOMContentLoaded", function () {
+        const temperatureElement = document.querySelector(".temperature");
+        const increaseButton = document.querySelector(".increase-btn");
+        const decreaseButton = document.querySelector(".decrease-btn");
+
+        currentTemperature = 22; // Initial temperature
+
+        function updateTemperature() {
+          temperatureElement.textContent = currentTemperature + "°C";
+        }
+
+        increaseButton.addEventListener("click", function () {
+          currentTemperature++;
+          if (currentTemperature > 30) {
+            currentTemperature = 30;
+          }
+          updateTemperature();
+        });
+
+        decreaseButton.addEventListener("click", function () {
+          currentTemperature--;
+          if (currentTemperature < 17) {
+            currentTemperature = 17;
+          }
+          updateTemperature();
+        });
+
+        // Initial temperature display
+        updateTemperature();
+      });
+      // Send the updated temperature to the server using HTTP
+      fetch("/setTemp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ number: currentTemperature }),
+      });
+
+      window.onload = () => {
+        fetch("/setTemp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ number: currentTemperature }),
+        });
+      };
+    </script>
+  </body>
+</html>

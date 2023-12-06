@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Autour+One&family=Inter:wght@300;400;500&family=Lato:wght@300;400;700&family=Merriweather&family=Montserrat:wght@300;500&family=Mulish:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Welcome page</title>
+  </head>
+  <body id="playArea">
+    <div id="welcome">
+      <div>
+        <h1 class="tracking-in-contract-bck-top">Hello Martha</h1>
+        <h2 class="tracking-in-expand">Welcome to</h2>
+      </div>
+
+      <div id="logo">
+        <div>
+          <!-- <img class="animation" src= "images/Animation - 1700808437060.2.gif" > -->
+          <img
+            class="animation"
+            src="https://s3-alpha-sig.figma.com/img/d741/356d/88cba184e4f349b4ec379a7ade186e84?Expires=1701648000&Signature=kI-PhLl~FnEQMYIuJQiE1v4DONRK6mll6hPJ-OZcGQUGU8zxtqDw~CDIyICz0AXQlnEtGG9SDzhZ1gdqZN3A1miT7byn3fwcI4ZmzmRPhnkySNnJ5tVs66dhFV~JGplG5EMme0qTHv0nSFXjwB2LXZASptlh0PC3E8wsp-yfZcCTNXOcD~uImZNl3BCMP2DKJWk2rJZ3~KZtkF6yM0yNuHnRLGzDWXoPPMZf-A~yUN5t~MLqc9dravb7vdTqs4lftd3GIqoF8VkDtWpDoyNlmF5v1Xao7hyiENuUkXUU4HGejePZNEesfNs60CNSrq8RZOxY8vyOcYaY1KbW2xwESw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+          />
+        </div>
+        <div>
+          <img
+            class="scale-in-center"
+            id="logo1"
+            src="images/LOGO 1.png"
+            alt="logo"
+          />
+        </div>
+
+        <div>
+          <!-- <img class="animation" src= "images/Animation - 1700808437060.2.gif"> -->
+          <img
+            class="animation"
+            src="https://s3-alpha-sig.figma.com/img/d741/356d/88cba184e4f349b4ec379a7ade186e84?Expires=1701648000&Signature=kI-PhLl~FnEQMYIuJQiE1v4DONRK6mll6hPJ-OZcGQUGU8zxtqDw~CDIyICz0AXQlnEtGG9SDzhZ1gdqZN3A1miT7byn3fwcI4ZmzmRPhnkySNnJ5tVs66dhFV~JGplG5EMme0qTHv0nSFXjwB2LXZASptlh0PC3E8wsp-yfZcCTNXOcD~uImZNl3BCMP2DKJWk2rJZ3~KZtkF6yM0yNuHnRLGzDWXoPPMZf-A~yUN5t~MLqc9dravb7vdTqs4lftd3GIqoF8VkDtWpDoyNlmF5v1Xao7hyiENuUkXUU4HGejePZNEesfNs60CNSrq8RZOxY8vyOcYaY1KbW2xwESw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+          />
+        </div>
+      </div>
+
+      <div>
+        <a href="Carousel-page-resident.html">
+          <button id="start">START</button>
+        </a>
+      </div>
+    </div>
+
+    <audio id="audioFile" width="100%" height="auto" autoplay>
+      <source
+        src="sounds/uplifting-corporate-logo-betacut-1-00-07.mp3"
+        type="audio/mp3"
+      />
+    </audio>
+
+    <script>
+      //     window.onload = function() {
+      //     document.getElementById("audioFile").play();
+      // }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Hello");
+        setTimeout(function () {
+          console.log("Triggered");
+          var audio = document.getElementById("audioFile");
+
+          audio.play();
+        }, 100);
+      });
+
+      document
+        .getElementById("playArea")
+        .addEventListener("mouseover", function () {
+          var audio = document.getElementById("audioFile");
+          audio.play();
+        });
+
+      // var animatedElement = document.querySelector(
+      //   ".tracking-in-contract-bck-top"
+      // );
+      // var audio = document.getElementById("audioFile");
+
+      // animatedElement.addEventListener("animationstart", function () {
+      //   audio
+      //     .play()
+      //     .then(function () {
+      //       console.log("Audio started playing!");
+      //     })
+      //     .catch(function (error) {
+      //       console.error("Error playing audio:", error);
+      //     });
+      // });
+
+      // audio.play();
+
+      //     document.addEventListener("DOMContentLoaded", function() {
+      //   var audio = document.getElementById("audioFile");
+
+      //   // Delay playback by 2 seconds (2000 milliseconds)
+      //   setTimeout(function() {
+      //     audio.play();
+      //   }, 2000);
+      // });
+    </script>
+  </body>
+</html>
